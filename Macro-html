@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SolidWorks Macro Keyboard</title>
+</head>
+<body>
+    <h1>SolidWorks Macro Keyboard</h1>
+    <button onclick="sendCommand('Ctrl+N')">Nieuw Document</button>
+    <button onclick="sendCommand('Ctrl+S')">Opslaan</button>
+    <button onclick="sendCommand('Ctrl+Z')">Ongedaan maken</button>
+    <button onclick="sendCommand('Ctrl+Y')">Opnieuw</button>
+    
+    <script>
+        function sendCommand(command) {
+            // Via een WebSocket verstuur je de opdracht naar de computer
+            // Je kunt hier ook andere methodes gebruiken, zoals localStorage of een backend server
+            fetch(`http://<jouw-pc-ip>:<poort>/execute?command=${command}`);
+        }
+    </script>
+</body>
+</html>
